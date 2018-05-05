@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <meta charset="UTF-8">
+
+    <title>CodePen - Random Login Form</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <link href="~/Content/style2.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div class="body"></div>
+    <div class="grad"></div>
+    <div class="header">
+        <div>Site<span>Random</span></div>
+        <h4 style="color:red ; text-align:center"> @ViewBag.Thongbao</h4>
+    </div>
+    <br>
+    <div class="login">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <input type="text" placeholder="username" name="username"><br>
+            @ViewData["Loi1"]
+
+            <input type="password" placeholder="password" name="password"><br>
+            @ViewData["Loi2"]
+            
+            <button type="submit" class="btn">dang nhap</button>
+        }
+        
+       
+    </div>
+
+    <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+    <script src="~/Scripts/prefixfree.min.js"></script>
+</body>
+
+</html>

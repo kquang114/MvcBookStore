@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/shop-homepage.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <div class="navbar-brand">
+                @Html.ActionLink("TRANG CHỦ", "Index")
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("ĐĂNG NHẬP   ", "Dangnhap", "Nguoidung")</li>
+                    <li>@Html.ActionLink("     ĐĂNG KÝ", "Dangky", "Nguoidung")</li>
+                    <li>@Html.ActionLink("GIỎ HÀNG", "Giohang", "Giohang")</li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-3">
+                @Html.Action("Chude", "BookStore")
+
+                @Html.Action("Nhaxuatban", "BookStore")
+            </div>
+
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-9">
+
+                <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid" src="~/Images/hinhngoai1.png" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="~/Images/hinhngoai2.png" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="~/Images/hinhngoai3.png" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col-lg-9">
+                    <table align="center">
+                        <h4 style="color:red; text-align:center">@ViewBag.Thongbao</h4>
+                        <h2 style="text-align:center">ĐĂNG NHẬP</h2>
+                        @using (Html.BeginForm())
+                        {
+                            @Html.ValidationSummary(true)
+
+                            <tr style="height:40px">
+                                <td>Tên đăng nhập :</td>
+                                <td>
+                                    @Html.TextBox("TenDN")
+                                    @ViewData["Loi1"]
+                                </td>
+                            </tr>
+
+                            <tr style="height:40px">
+                                <td>Mật khẩu :</td>
+                                <td>
+                                    @Html.Password("Matkhau")
+                                    @ViewData["Loi2"]
+                                </td>
+                            </tr>
+
+                            <tr style="height:40px">
+                                <td></td>
+                                <td>
+                                    <input type="submit" value="Đăng nhập" />
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    <div>
+                        @Html.ActionLink("TRỞ VỀ", "Index", "BookStore");
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- /.container -->
+    </body>
+</html>

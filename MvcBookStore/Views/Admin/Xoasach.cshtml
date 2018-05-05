@@ -1,0 +1,114 @@
+﻿@model MvcBookStore.Models.SACH
+
+@{
+    ViewBag.Title = "Xoasach";
+    Layout = "~/Views/Shared/_LayoutAmin.cshtml";
+}
+
+<h2>xac nhan thong tin sach can xoa </h2>
+
+<h3>Ban muon xoa sach nay khong ?</h3>
+<div>
+    <h4>SACH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Ten sach :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tensach)
+        </dd>
+
+        <dt>
+            Don vi tinh :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donvitinh)
+        </dd>
+
+        <dt>
+            Gia ban :
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", Model.Dongia) VND
+        </dd>
+
+        <dt>
+            Mo ta :
+        </dt>
+
+        <dd style="width:600px; text-align:justify">
+
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            Anh minh hoa :
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Images/"+ Model.Hinhminhhoa)" width="120px" />
+        </dd>
+
+        <dt>
+            Chu de :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCD)
+        </dd>
+
+        <dt>
+            Nha xuat ban :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNXB)
+        </dd>
+
+        <dt>
+            Ngay cap nhat :
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat) VND
+        </dd>
+
+        <dt>
+            So luong ban :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongban)
+        </dd>
+
+        <dt>
+            So lan xem :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.solanxem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.moi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.moi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Tro ve", "Sach")
+        </div>
+    }
+</div>
